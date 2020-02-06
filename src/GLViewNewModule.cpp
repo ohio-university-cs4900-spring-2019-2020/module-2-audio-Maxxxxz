@@ -88,8 +88,19 @@ void GLViewNewModule::onCreate()
    this->se->setDefault3DSoundMinDistance(5.0f);
    this->se->setDefault3DSoundMaxDistance(1000.0f);
 
-   std::string soundsystem = "../mm/sounds/goodsong.ogg";
-   this->se->play3D(soundsystem.c_str(), { 0.0f, 0.0f, 10.0f }, true);
+   //this->se->setSoundVolume(.25);
+   //std::string soundsystem = "../mm/sounds/goodsong.ogg";
+   //irrklang::ISound* sound = this->se->play3D(soundsystem.c_str(), { 0.0f, 0.0f, 100.0f }, true);
+   /*
+	for some reason engine is not returning pointer to the sound despite documentation saying it would.
+	Looks like 009 Sound System Dreamscape is not going to work right now since its so loud :(
+   */
+
+
+   
+
+   //this->se->setSoundVolume(.5f);
+   
 
    //this->setNumPhysicsStepsPerRender( 0 ); //pause physics engine on start up; will remain paused till set to 1
 }
