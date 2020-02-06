@@ -31,7 +31,7 @@
 #include "WONVPhysX.h"
 #include "WONVDynSphere.h"
 #include "AftrGLRendererBase.h"
-#include <irrKlang.h>
+#include <../irrKlang-64bit-1.6.0/include/irrKlang.h>
 
 //If we want to use way points, we need to include this.
 #include "NewModuleWayPoints.h"
@@ -86,7 +86,10 @@ void GLViewNewModule::onCreate()
 	   irrklang::vec3d(pos.x, pos.y, pos.z),
 	   irrklang::vec3d(ld.x, ld.y, ld.z));
    this->se->setDefault3DSoundMinDistance(5.0f);
-   this->se->setDefault3DSoundMaxDistance(100.0f);
+   this->se->setDefault3DSoundMaxDistance(1000.0f);
+
+   std::string soundsystem = "../mm/sounds/goodsong.ogg";
+   this->se->play3D(soundsystem.c_str(), { 0.0f, 0.0f, 10.0f }, true);
 
    //this->setNumPhysicsStepsPerRender( 0 ); //pause physics engine on start up; will remain paused till set to 1
 }
@@ -147,6 +150,7 @@ void GLViewNewModule::onKeyDown( const SDL_KeyboardEvent& key )
    if( key.keysym.sym == SDLK_1 )
    {
 	   printf("played 2D sound\n");
+
 	   this->se->play2D((ManagerEnvironmentConfiguration::getSMM() + "/sounds/space.ogg").c_str());//,
 		   //irrklang::vec3d(cam->getPosition().x, cam->getPosition().y, cam->getPosition().z), true);
    }

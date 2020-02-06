@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GLView.h"
-#include <irrKlang.h>
+#include <../irrKlang-64bit-1.6.0/include/irrKlang.h>
 
 namespace Aftr
 {
